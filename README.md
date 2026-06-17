@@ -57,7 +57,17 @@ erp-showcase/
 
 ---
 
-## The 3 Stack Combos
+## Live Demo Integration
+
+The showcase links to a live AWS deployment at https://d1lz772m0ovkmh.cloudfront.net via an in-app iframe:
+
+- **Homepage** — "LIVE PROCESS" card with pulsing indicator → opens `/demo`
+- **Q3, Q6, Q7** — "▶ Try it live on AWS" banner at bottom of each page → opens `/demo`
+- **`/demo` page** — full-window iframe embed of the CloudFront URL with `← Back to Showcase` button
+
+Live demo repo: https://github.com/higialuz/legacyMigrationLogic
+
+---
 
 The stack selector at the top of every page re-renders all code examples, architecture diagrams, and deployment strategies in the chosen combination:
 
