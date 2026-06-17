@@ -31,6 +31,52 @@ export default function HomePage() {
         </Typography>
       </Box>
 
+      {/* Live Demo Card */}
+      <Box
+        component="a"
+        href="/demo"
+        
+        sx={{ textDecoration: 'none', display: 'block' }}
+      >
+        <Card elevation={0} sx={{
+          border: '2px solid #ef5350',
+          borderRadius: 3,
+          background: 'linear-gradient(135deg, rgba(239,83,80,0.08) 0%, rgba(79,195,247,0.06) 100%)',
+          cursor: 'pointer',
+          transition: 'border-color .2s, transform .15s',
+          '&:hover': { borderColor: '#4fc3f7', transform: 'translateY(-2px)' },
+        }}>
+          <CardContent sx={{ p: 3, display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flex: 1 }}>
+              <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#ef5350', flexShrink: 0,
+                animation: 'livepulse 1.5s ease-in-out infinite',
+                '@keyframes livepulse': { '0%,100%': { boxShadow: '0 0 0 0 rgba(239,83,80,0.6)' }, '50%': { boxShadow: '0 0 0 8px rgba(239,83,80,0)' } }
+              }} />
+              <Box>
+                <Typography variant="overline" sx={{ color: '#ef5350', fontWeight: 800, letterSpacing: 3, lineHeight: 1, display: 'block' }}>
+                  LIVE PROCESS
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>
+                  These patterns are running on AWS right now
+                </Typography>
+              </Box>
+            </Box>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, minWidth: 200 }}>
+              {[
+                '🔀 Strangler Fig Router — live feature flag',
+                '🧮 Billing Rules — Strategy Pattern in Lambda',
+                '🔍 Observability — real audit log stream',
+              ].map(t => (
+                <Typography key={t} variant="caption" sx={{ color: 'text.secondary' }}>{t}</Typography>
+              ))}
+            </Box>
+            <Box sx={{ px: 2.5, py: 1.2, borderRadius: 2, bgcolor: 'primary.main', color: '#000', fontWeight: 800, fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
+              ▶ Try it live →
+            </Box>
+          </CardContent>
+        </Card>
+      </Box>
+
       <Alert severity="info" sx={{ borderRadius: 2 }}>
         Use the <strong>stack selector above</strong> to view all code examples, architecture diagrams, and deployment strategies
         in your preferred technology combination.

@@ -225,7 +225,7 @@ export default function Q7() {
         <Typography variant="body2" sx={{ color: 'text.secondary', flex: 1 }}>
           The Strangler Fig router is running live — toggle the feature flag and send requests to see traffic switch between the legacy IIS simulation and the new Lambda service.
         </Typography>
-        <Box component="a" href="https://d1lz772m0ovkmh.cloudfront.net" target="_blank"
+        <Box component="a" href="/demo" 
           sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, px: 2, py: 1, borderRadius: 1, bgcolor: 'primary.main', color: '#000', fontWeight: 700, fontSize: '0.85rem', textDecoration: 'none', whiteSpace: 'nowrap' }}>
           ▶ Try it live on AWS →
         </Box>

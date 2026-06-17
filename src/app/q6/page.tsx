@@ -133,7 +133,7 @@ export default function Q6() {
         <Typography variant="body2" sx={{ color: 'text.secondary', flex: 1 }}>
           Watch a live structured audit trace stream in real time — pick a scenario (success, config error, rule error) and see exactly what support would see in the dashboard.
         </Typography>
-        <Box component="a" href="https://d1lz772m0ovkmh.cloudfront.net" target="_blank"
+        <Box component="a" href="/demo" 
           sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, px: 2, py: 1, borderRadius: 1, bgcolor: 'primary.main', color: '#000', fontWeight: 700, fontSize: '0.85rem', textDecoration: 'none', whiteSpace: 'nowrap' }}>
           ▶ Try it live on AWS →
         </Box>

@@ -227,7 +227,7 @@ export default function Q3() {
         <Typography variant="body2" sx={{ color: 'text.secondary', flex: 1 }}>
           This billing rule engine is running live on AWS Lambda. Select a client, enter an amount, and see the Strategy Pattern resolve the rule in real time.
         </Typography>
-        <Box component="a" href="https://d1lz772m0ovkmh.cloudfront.net" target="_blank"
+        <Box component="a" href="/demo" 
           sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5, px: 2, py: 1, borderRadius: 1, bgcolor: 'primary.main', color: '#000', fontWeight: 700, fontSize: '0.85rem', textDecoration: 'none', whiteSpace: 'nowrap' }}>
           ▶ Try it live on AWS →
         </Box>
