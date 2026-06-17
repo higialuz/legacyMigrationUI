@@ -9,6 +9,7 @@ import MuiRegistry from '@/components/MuiRegistry'
 import Sidebar from '@/components/Sidebar'
 import StackSelector from '@/components/StackSelector'
 import { ReactNode } from 'react'
+import { LangProvider } from '@/context/LangContext'
 
 export default function DynamicLayout({ children }: { children: ReactNode }) {
   const { mode } = useThemeMode()
@@ -19,6 +20,7 @@ export default function DynamicLayout({ children }: { children: ReactNode }) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <StackProvider>
+          <LangProvider>
           <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: 'background.default' }}>
             <Sidebar />
             <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
@@ -28,6 +30,7 @@ export default function DynamicLayout({ children }: { children: ReactNode }) {
               </Box>
             </Box>
           </Box>
+          </LangProvider>
         </StackProvider>
       </ThemeProvider>
     </MuiRegistry>

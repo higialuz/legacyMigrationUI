@@ -3,12 +3,11 @@ import { Box, Typography, Grid2 as Grid, Divider, Alert, Stepper, Step, StepLabe
 import PageShell from '@/components/PageShell'
 import ArtifactCard from '@/components/ArtifactCard'
 import CodeBlock from '@/components/CodeBlock'
+import { useLang } from '@/context/LangContext'
+import { q4 } from '@/translations/q3q4q5'
 
-const ADR_TEMPLATE = `# ADR-042: Billing Fee Calculation — Ground Truth
-
-**Date:** 2025-01-15
-**Status:** Approved
-**Approver:** Head of Product + Tech Lead
+const ADR_EN = `# ADR-042: Billing Fee Calculation — Ground Truth
+**Date:** 2025-01-15  **Status:** Approved  **Approver:** Head of Product + Tech Lead
 
 ## Context
 Four conflicting versions of the billing fee rule were found:
@@ -20,48 +19,53 @@ Four conflicting versions of the billing fee rule were found:
 ## Decision
 **Ground truth is the stored procedure behavior as observed in production.**
 Rationale: production has been running for 7 years without client complaints.
-The SP behavior is what clients have accepted as correct.
 
 ## Evidence
 - 6 months of production logs analyzed (2024-07-01 to 2024-12-31)
 - 3 clients interviewed — all confirmed tiered behavior
-- Support ticket history: zero billing disputes related to calculation method
 
 ## Consequences
 - Analyst documentation will be updated to reflect SP behavior
-- New implementation must produce identical output to sp_CalcBilling for all test cases
-- sp_CalcBilling output used as test oracle for regression suite
+- New implementation must produce identical output to sp_CalcBilling`
 
-## Participants
-- Systems Analyst: [name]
-- Lead Developer: [name]  
-- Support Lead: [name]
-- Product Owner: [name] ← final approval`
+const ADR_PT = `# ADR-042: Cálculo de Taxa de Faturamento — Verdade
+**Data:** 2025-01-15  **Status:** Aprovado  **Aprovador:** Head de Produto + Tech Lead
+
+## Contexto
+Quatro versões conflitantes da regra de taxa de faturamento foram encontradas:
+- Doc do analista: 10% fixo sobre o valor bruto
+- Código da aplicação: 10% sobre o valor líquido após deduções
+- Stored procedure sp_CalcBilling: taxa escalonada por volume
+- Observação em produção: escalonada, mas com mínimo de R$50
+
+## Decisão
+**A verdade é o comportamento da stored procedure observado em produção.**
+Justificativa: a produção roda há 7 anos sem reclamações de clientes.
+
+## Evidências
+- 6 meses de logs de produção analisados (2024-07-01 a 2024-12-31)
+- 3 clientes entrevistados — todos confirmaram comportamento escalonado
+
+## Consequências
+- A documentação do analista será atualizada para refletir o comportamento da SP
+- A nova implementação deve produzir resultado idêntico ao sp_CalcBilling`
 
 export default function Q4() {
+  const { lang } = useLang()
   return (
-    <PageShell q="Q4" title="Technical Decision Making Under Conflicting Truth" subtitle="4 sources, 4 different rules. Analyst, developer, stored procedure, and production all say something different. How do you find ground truth?">
-
+    <PageShell q={q4.shell.q[lang]} title={q4.shell.title[lang]} subtitle={q4.shell.subtitle[lang]}>
       <Alert severity="error" sx={{ borderRadius: 2 }}>
-        <strong>The trap:</strong> Picking the most authoritative-sounding source (the analyst doc, the most senior developer) and moving on. Ground truth is what production actually does — not what anyone thinks it does.
+        <span dangerouslySetInnerHTML={{ __html: q4.alert[lang] }} />
       </Alert>
 
-      {/* Process */}
       <Box>
-        <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>The Ground Truth Process</Typography>
+        <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>{q4.processTitle[lang]}</Typography>
         <Stepper orientation="vertical">
-          {[
-            { label: 'Freeze — stop all informal decisions', content: 'Call a meeting with all parties. Acknowledge the conflict explicitly. No one implements anything until ground truth is established. Informal "let\'s just go with X" decisions made under time pressure are how production incidents happen.' },
-            { label: 'Extract technical evidence', content: 'Pull 6+ months of production logs. Identify actual calculation patterns. Run the SP in a staging environment with real production data (anonymized). Compare output to each competing rule. The SP + production logs are your test oracle.' },
-            { label: 'Client interviews', content: 'Contact 3–5 affected clients. Ask: "Has the billing ever been wrong? Have you ever filed a dispute?" Their operational reality is the final arbiter — not the codebase.' },
-            { label: 'Document the conflict', content: 'Write an Architecture Decision Record (ADR) that explicitly names all four conflicting versions and their sources. This is not a blame document — it\'s a record of the investigation.' },
-            { label: 'Convene the decision meeting', content: 'Analyst + Lead Developer + Support Lead + Product Owner. Present evidence. Agree on ground truth. Product Owner gives final approval. This is not a technical decision alone.' },
-            { label: 'Formalize and propagate', content: 'Update the ADR to "Approved" status. Update business rules documentation. Write regression tests using the SP as oracle. Archive the old documentation with a note explaining why it was superseded.' },
-          ].map(({ label, content }, i) => (
+          {q4.steps[lang].map((s: { label: string; content: string }, i: number) => (
             <Step key={i} active>
-              <StepLabel><Typography sx={{ fontWeight: 700 }}>{label}</Typography></StepLabel>
+              <StepLabel><Typography sx={{ fontWeight: 700 }}>{s.label}</Typography></StepLabel>
               <StepContent>
-                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>{content}</Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>{s.content}</Typography>
               </StepContent>
             </Step>
           ))}
@@ -71,31 +75,23 @@ export default function Q4() {
       <Divider sx={{ borderColor: 'rgba(255,255,255,0.07)' }} />
 
       <Box>
-        <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>The ADR — Architecture Decision Record</Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-          This is the artifact that prevents the conflict from recurring. Every future developer who touches this rule reads the ADR first.
-        </Typography>
-        <CodeBlock code={ADR_TEMPLATE} language="markdown" label="ADR-042 — Billing Ground Truth Decision" />
+        <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>{q4.adrTitle[lang]}</Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>{q4.adrBody[lang]}</Typography>
+        <CodeBlock code={lang === 'en' ? ADR_EN : ADR_PT} language="markdown" label={q4.adrLabel[lang]} />
       </Box>
 
       <Divider sx={{ borderColor: 'rgba(255,255,255,0.07)' }} />
 
       <Box>
-        <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>Controls & AI Role</Typography>
+        <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>{q4.controlsTitle[lang]}</Typography>
         <Grid container spacing={2}>
-          {[
-            { title: 'Preventing informal decisions', desc: 'No rule change is valid without an ADR. The ADR template is part of the repo. CI pipeline blocks PRs that modify billing logic without an associated ADR file.' },
-            { title: 'Who approves', desc: 'Product Owner has final approval on business rules. Tech Lead approves implementation. Both signatures required. No single person decides alone.' },
-            { title: 'AI can assist — not decide', desc: 'AI can analyze log patterns, summarize SP logic, and draft the ADR. It cannot determine which version is correct — that requires business context and client confirmation that no LLM has access to.' },
-            { title: 'From ADR to tests', desc: 'The approved ADR\'s "Decision" section becomes the test specification. Each bullet point in the decision maps to at least one automated test case.' },
-          ].map(({ title, desc }) => (
-            <Grid key={title} size={{ xs: 12, md: 6 }}>
-              <ArtifactCard title={title}>{desc}</ArtifactCard>
+          {q4.controls[lang].map((c: { title: string; desc: string }) => (
+            <Grid key={c.title} size={{ xs: 12, md: 6 }}>
+              <ArtifactCard title={c.title}>{c.desc}</ArtifactCard>
             </Grid>
           ))}
         </Grid>
       </Box>
-
     </PageShell>
   )
 }
