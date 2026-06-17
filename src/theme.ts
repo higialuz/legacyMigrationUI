@@ -15,11 +15,17 @@ export const buildTheme = (mode: PaletteMode) => createTheme({
   },
   typography: {
     fontFamily: '"Inter", "Roboto", sans-serif',
+    fontSize: 16,
     h1: { fontWeight: 800 },
     h2: { fontWeight: 700 },
     h3: { fontWeight: 700 },
     h4: { fontWeight: 600 },
-    h5: { fontWeight: 600 },
+    h5: { fontWeight: 600, fontSize: '1.4rem' },
+    h6: { fontWeight: 600, fontSize: '1.15rem' },
+    body1: { fontSize: '1.05rem', lineHeight: 1.8 },
+    body2: { fontSize: '1rem',   lineHeight: 1.8 },
+    caption: { fontSize: '0.9rem' },
+    overline: { fontSize: '0.8rem' },
   },
   shape: { borderRadius: 10 },
   components: {
