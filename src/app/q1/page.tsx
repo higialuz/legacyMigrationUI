@@ -75,7 +75,7 @@ export default function Q1() {
                 <TableCell><Chip label={order} size="small" sx={{ bgcolor: 'rgba(79,195,247,0.1)', color: 'primary.main', fontWeight: 700 }} /></TableCell>
                 <TableCell sx={{ fontWeight: 600, fontSize: '0.85rem' }}>{artifact}</TableCell>
                 <TableCell sx={{ color: 'text.secondary', fontSize: '0.82rem' }}>{purpose}</TableCell>
-                <TableCell><Chip label={validator} size="small" variant="outlined" sx={{ fontSize: '0.72rem' }} /></TableCell>
+                <TableCell><Chip label={validator} size="small" variant="filled" sx={{ fontSize: '0.72rem', color: '#472c6d' }} /></TableCell>
               </TableRow>
             ))}
           </TableBody>

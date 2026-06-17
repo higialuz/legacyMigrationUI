@@ -12,11 +12,11 @@ export default function HomePage() {
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <Box sx={{ py: 2 }}>
         <Chip label={h.chip[lang]} size="small" sx={{ mb: 2, bgcolor: '#4fc3f7', color: '#000', fontWeight: 700 }} />
-        <Typography variant="h2" sx={{ fontWeight: 800, mb: 1.5, lineHeight: 1.1 }}>
+        <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5, lineHeight: 1.1 }}>
           {h.h2a[lang]}<br />
           <Box component="span" sx={{ color: 'primary.main' }}>{h.h2b[lang]}</Box>
         </Typography>
-        <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 660, lineHeight: 1.8 }}>
+        <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 800, maxWidth: 780, lineHeight: 1.8 }}>
           {h.intro[lang]}
         </Typography>
       </Box>
@@ -26,7 +26,7 @@ export default function HomePage() {
         <Card elevation={0} sx={{ border: '2px solid #ef5350', borderRadius: 3, background: 'linear-gradient(135deg, rgba(239,83,80,0.08) 0%, rgba(79,195,247,0.06) 100%)', cursor: 'pointer', transition: 'border-color .2s, transform .15s', '&:hover': { borderColor: '#4fc3f7', transform: 'translateY(-2px)' } }}>
           <CardContent sx={{ p: 3, display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, flex: 1 }}>
-              <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#ef5350', flexShrink: 0, animation: 'livepulse 1.5s ease-in-out infinite', '@keyframes livepulse': { '0%,100%': { boxShadow: '0 0 0 0 rgba(239,83,80,0.6)' }, '50%': { boxShadow: '0 0 0 8px rgba(239,83,80,0)' } } }} />
+              <Box sx={{ width: 20, height: 20, borderRadius: '50%', bgcolor: '#ef5350', flexShrink: 0, animation: 'livepulse 1.5s ease-in-out infinite', '@keyframes livepulse': { '0%,100%': { boxShadow: '0 0 0 0 rgba(239,83,80,0.6)' }, '50%': { boxShadow: '0 0 0 8px rgba(239,83,80,0)' } } }} />
               <Box>
                 <Typography variant="overline" sx={{ color: '#ef5350', fontWeight: 800, letterSpacing: 3, lineHeight: 1, display: 'block' }}>LIVE PROCESS</Typography>
                 <Typography variant="h6" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>{h.liveTitle[lang]}</Typography>
@@ -34,10 +34,10 @@ export default function HomePage() {
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5, minWidth: 200 }}>
               {(h.liveItems[lang] as unknown as string[]).map((item: string) => (
-                <Typography key={item} variant="caption" sx={{ color: 'text.secondary' }}>{item}</Typography>
+                <Typography key={item} variant="caption" sx={{ color: 'text.secondary', fontSize: 15, fontWeight: 800 }}>{item}</Typography>
               ))}
             </Box>
-            <Box sx={{ px: 2.5, py: 1.2, borderRadius: 2, bgcolor: 'primary.main', color: '#000', fontWeight: 800, fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
+            <Box sx={{ px: 2.5, py: 1.2, borderRadius: 2, bgcolor: 'primary.main', color: '#f0e3e3', fontWeight: 800, fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
               {h.liveBtn[lang]}
             </Box>
           </CardContent>
@@ -66,7 +66,7 @@ export default function HomePage() {
 
       <Box>
         <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>{h.philTitle[lang]}</Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 800, mb: 2 }}>
           <span dangerouslySetInnerHTML={{ __html: h.philBody[lang] }} />
         </Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
@@ -85,9 +85,9 @@ export default function HomePage() {
             <Grid key={href} size={{ xs: 12, sm: 6 }}>
               <Card elevation={0} component={Link} href={href} sx={{ display: 'block', textDecoration: 'none', transition: 'border-color .2s', '&:hover': { borderColor: 'primary.main' } }}>
                 <CardContent sx={{ p: 2.5 }}>
-                  <Chip label={q} size="small" sx={{ mb: 1, fontWeight: 700, fontSize: '0.7rem', bgcolor: q === '★' ? '#ffa726' : 'rgba(79,195,247,0.15)', color: q === '★' ? '#000' : 'primary.main' }} />
+                  <Chip label={q} sx={{ mb: 1, fontWeight: 800, fontSize: '1.3rem', bgcolor: q === '★' ? '#ffa726' : 'rgba(79,195,247,0.15)', color: q === '★' ? '#000' : 'primary.main' }} />
                   <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>{title}</Typography>
-                  <Typography variant="caption" sx={{ color: 'text.secondary' }}>{desc}</Typography>
+                  <Typography variant="caption" sx={{ color: 'text.secondary', fontSize: 18 }}>{desc}</Typography>
                 </CardContent>
               </Card>
             </Grid>

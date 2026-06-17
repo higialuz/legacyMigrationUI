@@ -26,8 +26,8 @@ export default function ArtifactCard({ number, title, children, risk, who, color
             <Box sx={{ color: 'text.secondary', fontSize: '0.9rem', lineHeight: 1.7 }}>{children}</Box>
             {(risk || who) && (
               <Box sx={{ display: 'flex', gap: 1, mt: 2, flexWrap: 'wrap' }}>
-                {risk && <Chip label={`⚠ ${risk}`} size="small" color="warning" variant="outlined" />}
-                {who && <Chip label={`👥 ${who}`} size="small" color="info" variant="outlined" />}
+                {risk && <Chip label={`⚠ ${risk}`} size="small" color="warning" variant="filled" />}
+                {who && <Chip label={`👥 ${who}`} size="small" color="info" variant="filled" />}
               </Box>
             )}
           </Box>

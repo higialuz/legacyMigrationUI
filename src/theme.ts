@@ -4,18 +4,18 @@ import { createTheme, PaletteMode } from '@mui/material/styles'
 export const buildTheme = (mode: PaletteMode) => createTheme({
   palette: {
     mode,
-    primary: { main: '#4fc3f7' },
+    primary: { main: '#403963' },
     secondary: { main: '#ce93d8' },
     background: mode === 'dark'
       ? { default: '#0a0e1a', paper: '#0d1628' }
-      : { default: '#f0f4f8', paper: '#ffffff' },
+      : { default: '#aff9e5', paper: '#ffffff' },
     success: { main: '#66bb6a' },
     warning: { main: '#ffa726' },
     error: { main: '#ef5350' },
   },
   typography: {
     fontFamily: '"Inter", "Roboto", sans-serif',
-    fontSize: 16,
+    fontSize: 18,
     h1: { fontWeight: 800 },
     h2: { fontWeight: 700 },
     h3: { fontWeight: 700 },
@@ -37,7 +37,7 @@ export const buildTheme = (mode: PaletteMode) => createTheme({
         },
       },
     },
-    MuiChip: { styleOverrides: { root: { fontWeight: 600 } } },
+    MuiChip: { styleOverrides: { root: { fontWeight: 600, color: 'white' } } },
   },
 })
 

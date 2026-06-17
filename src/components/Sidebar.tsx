@@ -26,7 +26,7 @@ export default function Sidebar() {
   ]
 
   return (
-    <Box sx={{ width: 220, flexShrink: 0, borderRight: '1px solid rgba(255,255,255,0.07)', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ width: 280, flexShrink: 0, borderRight: '1px solid rgba(255,255,255,0.07)', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ p: 2.5, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', display: 'block' }}>
           {s.title[lang]}
@@ -54,7 +54,7 @@ export default function Sidebar() {
             <ListItemButton key={href} component={Link} href={href} selected={active}
               sx={{ borderRadius: 2, mx: 1, mb: 0.5, '&.Mui-selected': { background: 'rgba(79,195,247,0.1)', borderLeft: '3px solid', borderColor: 'primary.main' } }}>
               <Chip label={label} size="small" sx={{ mr: 1.5, minWidth: 44, fontWeight: 700, fontSize: '0.7rem', background: active ? 'primary.main' : 'rgba(255,255,255,0.07)', color: active ? '#000' : 'text.secondary' }} />
-              <ListItemText primary={sub} primaryTypographyProps={{ fontSize: '0.82rem', fontWeight: active ? 700 : 400 }} />
+              <ListItemText primary={sub} primaryTypographyProps={{ fontSize: '1rem', fontWeight: active ? 700 : 400 }} />
             </ListItemButton>
           )
         })}

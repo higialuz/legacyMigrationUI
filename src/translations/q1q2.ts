@@ -9,7 +9,7 @@ export const q1 = {
   },
   alert: {
     en: '<strong>Key principle:</strong> You never touch the code first. You build a map of what exists, then validate it against real behavior. Documentation that doesn\'t match production is worse than no documentation.',
-    pt: '<strong>Princípio central:</strong> Você nunca toca no código primeiro. Você constrói um mapa do que existe e depois valida contra o comportamento real. Documentação que não bate com a produção é pior do que nenhuma documentação.',
+    pt: '<strong>Princípio central:</strong> Nunca tocamos no código primeiro. Você constrói um mapa do que existe e depois valida contra o comportamento real. Documentação que não bate com a produção é pior do que nenhuma documentação.',
   },
   step1Title: { en: '1. What to Gather First', pt: '1. O Que Coletar Primeiro' },
   step1Body:  {
@@ -84,7 +84,7 @@ export const q2 = {
   },
   alert: {
     en: '<strong>Non-negotiable gate:</strong> If any of these 13 artifacts is missing or unvalidated, development authorization should not be granted. Refactoring without them is not engineering — it is gambling with production.',
-    pt: '<strong>Portão inegociável:</strong> Se qualquer um desses 13 artefatos estiver ausente ou não validado, a autorização de desenvolvimento não deve ser concedida. Refatorar sem eles não é engenharia — é apostar com a produção.',
+    pt: '<strong>Gate inegociável:</strong> Se qualquer um desses 13 artefatos estiver ausente ou não validado, a autorização de desenvolvimento não deve ser concedida. Refatorar sem eles não é engenharia — é apostar com a produção.',
   },
   intro: {
     en: 'Each artifact has a clear objective, a named risk if absent, and a validation owner. The artifacts are ordered by dependency — you cannot produce artifact N+1 without artifact N being validated.',

@@ -3,7 +3,7 @@ import { Box, ToggleButton, ToggleButtonGroup, Typography, Chip, Tooltip } from 
 import { useStack, STACKS, StackId } from '@/context/StackContext'
 import { useLang } from '@/context/LangContext'
 
-const LABEL = { en: 'View this architecture in another stack', pt: 'Veja esta arquitetura em outra stack' }
+const LABEL = { en: 'View this architecture in another stack', pt: 'Veja esta arquitetura em outro stack' }
 
 export default function StackSelector() {
   const { stack, setStack } = useStack()

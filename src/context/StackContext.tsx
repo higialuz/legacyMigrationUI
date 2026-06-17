@@ -22,7 +22,7 @@ export const STACKS: Stack[] = [
     backend: 'Python + Django + DRF',
     db: 'PostgreSQL (RDS)',
     infra: 'AWS SST v4 — Lambda + API GW + CloudFront',
-    color: '#4fc3f7',
+    color: '#a36da1',
     description: 'Recommended — fully serverless IaC, closest to their migration target spec.',
   },
   {

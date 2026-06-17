@@ -14,10 +14,10 @@ export default function Q2() {
       </Alert>
 
       <Box>
-        <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>{q2.intro[lang]}</Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 800, mb: 3 }}>{q2.intro[lang]}</Typography>
         <Grid container spacing={2}>
           {q2.artifacts[lang].map((a: { n: string; title: string; risk: string; who: string; desc: string }) => (
-            <Grid key={a.n} size={{ xs: 12, md: 6 }}>
+            <Grid key={a.n} size={{ xs: 12, md: 6 }} sx={{ fontSize: 15, fontWeight: 800 }}>
               <ArtifactCard number={a.n} title={a.title} risk={a.risk} who={a.who}>{a.desc}</ArtifactCard>
             </Grid>
           ))}
@@ -31,7 +31,7 @@ export default function Q2() {
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>{q2.validBody[lang]}</Typography>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mt: 2 }}>
           {(q2.validChips[lang] as string[]).map((chip: string) => (
-            <Chip key={chip} label={chip} size="small" color="success" variant="outlined" />
+            <Chip key={chip} label={chip} size="small" color="success" variant='filled' />
           ))}
         </Box>
       </Box>

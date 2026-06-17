@@ -28,10 +28,10 @@ export const t = {
     h2b:      { en: 'Without Stopping Production', pt: 'Sem Parar a Produção' },
     intro:    {
       en: "A senior engineer's structured response to migrating a 14-year-old SaaS ERP for dental insurance providers — 70+ clients, VB.NET WebForms, SQL Server, scattered business rules — to a modern, stateless, cloud-native stack. Every answer here is a living artifact, not a slide deck.",
-      pt: 'Uma resposta estruturada de um engenheiro sênior para migrar um ERP SaaS de 14 anos para operadoras de planos odontológicos — 70+ clientes, VB.NET WebForms, SQL Server, regras de negócio dispersas — para uma stack moderna, stateless e cloud-native. Cada resposta aqui é um artefato vivo, não uma apresentação.',
+      pt: 'Como migrar um ERP SaaS de 14 anos para operadoras de planos odontológicos — 70+ clientes, VB.NET WebForms, SQL Server, regras de negócio dispersas — para uma stack moderna, stateless e cloud-native. Cada resposta aqui é um artefato vivo, não uma apresentação.',
     },
-    liveTitle: { en: 'These patterns are running on AWS right now', pt: 'Esses padrões estão rodando na AWS agora' },
-    liveBtn:   { en: '▶ Try it live →', pt: '▶ Experimente ao vivo →' },
+    liveTitle: { en: 'These patterns are running on AWS right now', pt: 'Teste os Padrões Estrangler Fig' },
+    liveBtn:   { en: '▶ Try it live →', pt: '▶ Veja Exemplo ATIVO →' },
     liveItems: {
       en: ['🔀 Strangler Fig Router — live feature flag', '🧮 Billing Rules — Strategy Pattern in Lambda', '🔍 Observability — real audit log stream'],
       pt: ['🔀 Strangler Fig Router — feature flag ao vivo', '🧮 Regras de Cobrança — Strategy Pattern em Lambda', '🔍 Observabilidade — stream de log de auditoria real'],

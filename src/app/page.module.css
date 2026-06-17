@@ -53,11 +53,12 @@
   font-size: 18px;
   line-height: 32px;
   text-wrap: balance;
+  font-weight: 800;
   color: var(--text-secondary);
 }
 
 .intro a {
-  font-weight: 500;
+  font-weight: 800;
   color: var(--text-primary);
 }
 
