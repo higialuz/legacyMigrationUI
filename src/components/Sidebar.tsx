@@ -31,9 +31,21 @@ export default function Sidebar() {
         <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', display: 'block' }}>
           {s.title[lang]}
         </Typography>
-        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+        <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
           {s.subtitle[lang]}
         </Typography>
+        <Box sx={{ display: 'flex', gap: 0.5, mt: 1 }}>
+          <Tooltip title={mode === 'dark' ? s.lightMode[lang] : s.darkMode[lang]}>
+            <IconButton onClick={toggleMode} size="small" sx={{ color: 'text.secondary' }}>
+              {mode === 'dark' ? '☀️' : '🌙'}
+            </IconButton>
+          </Tooltip>
+          <Tooltip title={lang === 'en' ? 'Português' : 'English'}>
+            <IconButton onClick={toggleLang} size="small" sx={{ color: 'text.secondary', fontWeight: 700, fontSize: '0.7rem' }}>
+              {lang === 'en' ? 'PT' : 'EN'}
+            </IconButton>
+          </Tooltip>
+        </Box>
       </Box>
       <List dense sx={{ flex: 1, py: 1 }}>
         {NAV.map(({ href, label, sub }) => {
@@ -48,23 +60,9 @@ export default function Sidebar() {
         })}
       </List>
       <Divider />
-      <Box sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Box>
-          <Typography variant="caption" sx={{ color: 'text.disabled', display: 'block' }}>Emerson Yaegashi</Typography>
-          <Typography variant="caption" sx={{ color: 'text.disabled' }}>Senior Full Stack & AI Engineer</Typography>
-        </Box>
-        <Box sx={{ display: 'flex', gap: 0.5 }}>
-          <Tooltip title={mode === 'dark' ? s.lightMode[lang] : s.darkMode[lang]}>
-            <IconButton onClick={toggleMode} size="small" sx={{ color: 'text.secondary' }}>
-              {mode === 'dark' ? '☀️' : '🌙'}
-            </IconButton>
-          </Tooltip>
-          <Tooltip title={lang === 'en' ? 'Português' : 'English'}>
-            <IconButton onClick={toggleLang} size="small" sx={{ color: 'text.secondary', fontWeight: 700, fontSize: '0.7rem' }}>
-              {lang === 'en' ? 'PT' : 'EN'}
-            </IconButton>
-          </Tooltip>
-        </Box>
+      <Box sx={{ p: 2 }}>
+        <Typography variant="caption" sx={{ color: 'text.disabled', display: 'block' }}>Emerson Yaegashi</Typography>
+        <Typography variant="caption" sx={{ color: 'text.disabled' }}>Senior Full Stack & AI Engineer</Typography>
       </Box>
     </Box>
   )
