@@ -24,10 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: 'background.default' }}>
                 <Sidebar />
                 <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+                  <StackSelector />
                   <Box component="main" sx={{ flex: 1, p: { xs: 2, md: 4 }, maxWidth: 900, width: '100%', mx: 'auto' }}>
                     {children}
                   </Box>
-                  <StackSelector />
                 </Box>
               </Box>
             </StackProvider>
