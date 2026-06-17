@@ -1,7 +1,8 @@
 'use client'
-import { Box, List, ListItemButton, ListItemText, Typography, Chip, Divider } from '@mui/material'
+import { Box, List, ListItemButton, ListItemText, Typography, Chip, Divider, IconButton, Tooltip } from '@mui/material'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useThemeMode } from '@/context/ThemeModeContext'
 
 const NAV = [
   { href: '/', label: 'Overview', sub: 'Migration Plan' },
@@ -18,6 +19,7 @@ const NAV = [
 
 export default function Sidebar() {
   const path = usePathname()
+  const { mode, toggle } = useThemeMode()
   return (
     <Box sx={{ width: 220, flexShrink: 0, borderRight: '1px solid rgba(255,255,255,0.07)', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ p: 2.5, borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
@@ -46,9 +48,16 @@ export default function Sidebar() {
         })}
       </List>
       <Divider />
-      <Box sx={{ p: 2 }}>
-        <Typography variant="caption" sx={{ color: 'text.disabled', display: 'block' }}>Emerson Yaegashi</Typography>
-        <Typography variant="caption" sx={{ color: 'text.disabled' }}>Senior Full Stack & AI Engineer</Typography>
+      <Box sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Box>
+          <Typography variant="caption" sx={{ color: 'text.disabled', display: 'block' }}>Emerson Yaegashi</Typography>
+          <Typography variant="caption" sx={{ color: 'text.disabled' }}>Senior Full Stack & AI Engineer</Typography>
+        </Box>
+        <Tooltip title={mode === 'dark' ? 'Light mode' : 'Dark mode'}>
+          <IconButton onClick={toggle} size="small" sx={{ color: 'text.secondary' }}>
+            {mode === 'dark' ? '☀️' : '🌙'}
+          </IconButton>
+        </Tooltip>
       </Box>
     </Box>
   )
