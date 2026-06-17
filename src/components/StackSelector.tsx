@@ -1,13 +1,17 @@
 'use client'
 import { Box, ToggleButton, ToggleButtonGroup, Typography, Chip, Tooltip } from '@mui/material'
 import { useStack, STACKS, StackId } from '@/context/StackContext'
+import { useLang } from '@/context/LangContext'
+
+const LABEL = { en: 'View this architecture in another stack', pt: 'Veja esta arquitetura em outra stack' }
 
 export default function StackSelector() {
   const { stack, setStack } = useStack()
+  const { lang } = useLang()
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, py: 3, px: 2, background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
       <Typography variant="caption" sx={{ color: 'text.secondary', letterSpacing: 2, textTransform: 'uppercase' }}>
-        View this architecture in another stack
+        {LABEL[lang]}
       </Typography>
       <ToggleButtonGroup value={stack.id} exclusive onChange={(_, v) => v && setStack(v as StackId)} size="small">
         {STACKS.map(s => (
